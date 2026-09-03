@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/rounded_search_bg"
+    android:backgroundTint="@color/bg_card">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/graphite_dark"
+        android:layout_marginBottom="16dp" />
+
+    <RadioGroup
+        android:id="@+id/rgPaymentOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbPayAtSite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pay at site using any UPI or cash"
+            android:textSize="15sp"
+            android:checked="true"
+            android:paddingVertical="12dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConfirmPayment"
+        style="@style/PremiumButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="PROCEED TO CHECKOUT"
+        android:backgroundTint="@color/brand_orange"
+        android:textColor="@color/bg_card" />
+
+</LinearLayout>

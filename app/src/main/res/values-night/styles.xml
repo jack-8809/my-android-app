@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Dark theme overrides.
+  NEW FILE: app/src/main/res/values-night/styles.xml
+  Only the values that must differ in dark mode are re-declared here;
+  everything else inherits from values/styles.xml.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/brand_orange</item>
+        <item name="colorPrimaryVariant">@color/brand_orange_dark</item>
+        <item name="colorOnPrimary">#14161A</item>
+        <item name="colorSecondary">@color/info_blue</item>
+        <item name="colorOnSecondary">#14161A</item>
+        <item name="colorAccent">@color/brand_orange</item>
+
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="colorSurface">@color/bg_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_tertiary</item>
+
+        <item name="android:statusBarColor">@color/bg_card</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+        <item name="android:navigationBarColor">@color/bg_card</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+
+        <item name="materialButtonStyle">@style/PremiumButton</item>
+        <item name="materialCardViewStyle">@style/ModernCard</item>
+        <item name="chipStyle">@style/AppChip</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>
+        <item name="materialAlertDialogTheme">@style/AppAlertDialog</item>
+        <item name="textInputStyle">@style/AppTextInput</item>
+        <item name="toolbarStyle">@style/AppToolbar</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/Shape.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.Large</item>
+        <item name="android:windowAnimationStyle">@style/AppWindowAnimation</item>
+    </style>
+
+    <style name="AppBottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
+        <item name="android:navigationBarColor">@color/bg_card</item>
+    </style>
+
+    <style name="AppAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/Shape.Large</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Button.Text</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Button.Text</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Text.Title</item>
+    </style>
+
+    <style name="TransparentTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorPrimary">@color/brand_orange</item>
+        <item name="colorAccent">@color/brand_orange</item>
+    </style>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Sticky bottom CTA bar.
+  NEW FILE: app/src/main/res/layout/view_bottom_cta.xml
+
+  Gives Cart / Product Detail / Checkout the same anchored action bar so the
+  primary action sits in the identical spot on every screen.
+
+  Include it as the bottom-anchored child of a CoordinatorLayout/RelativeLayout:
+
+      <include
+          android:id="@+id/bottomCta"
+          layout="@layout/view_bottom_cta"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true" />
+
+  Remember to add android:paddingBottom="@dimen/list_bottom_clearance" and
+  android:clipToPadding="false" on the RecyclerView above it so the last row
+  is never hidden behind the bar.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_bar"
+    android:elevation="@dimen/elev_sheet"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/screen_padding_h"
+    android:paddingTop="@dimen/space_md"
+    android:paddingEnd="@dimen/screen_padding_h"
+    android:paddingBottom="@dimen/space_md">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ctaLabel"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Total" />
+
+        <TextView
+            android:id="@+id/ctaAmount"
+            style="@style/Text.H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="₹4,280" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ctaButton"
+        style="@style/PremiumButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:minWidth="150dp"
+        tools:text="Place order" />
+</LinearLayout>

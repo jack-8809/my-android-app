@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Trust / benefits bar (HomeRun maroon strip)
+  NEW FILE: app/src/main/res/layout/view_benefits_bar.xml
+
+  Three trust signals: Pay on Delivery · Cashback · Free Delivery.
+  On phones these are tight, so it scrolls horizontally instead of squashing.
+
+      <include android:id="@+id/benefitsBar"
+               layout="@layout/view_benefits_bar"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+-->
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_benefit_bar"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_lg"
+        android:paddingTop="@dimen/space_md"
+        android:paddingEnd="@dimen/space_lg"
+        android:paddingBottom="@dimen/space_md">
+
+        <!-- Pay on Delivery -->
+        <LinearLayout
+            android:id="@+id/benefitPayOnDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_delivery_truck"
+                android:tint="@color/benefit_bar_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pay on Delivery"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_body_sm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.85"
+                    android:text="Pay after you receive"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_micro" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="@dimen/space_xl"
+            android:alpha="0.3"
+            android:background="@color/benefit_bar_text" />
+
+        <!-- Cashback -->
+        <LinearLayout
+            android:id="@+id/benefitCashback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_info"
+                android:tint="@color/benefit_bar_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1% Cashback"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_body_sm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.85"
+                    android:text="Assured on all orders"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_micro" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="@dimen/space_xl"
+            android:alpha="0.3"
+            android:background="@color/benefit_bar_text" />
+
+        <!-- Free Delivery -->
+        <LinearLayout
+            android:id="@+id/benefitFreeDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_delivery_truck"
+                android:tint="@color/benefit_bar_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free Delivery"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_body_sm"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.85"
+                    android:text="On orders above ₹500"
+                    android:textColor="@color/benefit_bar_text"
+                    android:textSize="@dimen/text_micro" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</HorizontalScrollView>

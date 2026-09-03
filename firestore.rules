@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if user is admin or manager
+    function isAdmin() {
+      return request.auth != null &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "ADMIN" ||
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "MANAGER");
+    }
+
+    // Allow users to read and write their own profiles
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, update: if isAdmin();
+
+      // Saved Addresses Sub-collection
+      match /addresses/{addrId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if isAdmin();
+      }
+    }
+
+    // Professional Services: Public read, Admin write
+    match /service_professionals/{serviceId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Categories: Public read, Admin write
+    match /categories/{catId} {
+      allow read: if true;
+      allow write: if isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Orders: Users read/write their own; Admins read all
+    match /orders/{orderId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null;
+      allow update, delete: if isAdmin();
+    }
+
+    // Items: Public read, Admin write
+    match /items/{itemId} {
+      allow read: if true;
+      allow write: if isAdmin() || request.auth != null;
+    }
+
+    match /settings/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Chats: Participated users and Admin
+    match /chats/{chatId} {
+      allow read, write: if request.auth != null;
+
+      match /messages/{msgId} {
+        allow read, write: if request.auth != null;
+      }
+    }
+
+    // General Support Chat: Participated users and Admin
+    match /general_support/{chatId} {
+      allow read, write: if request.auth != null;
+
+      match /messages/{msgId} {
+        allow read, write: if request.auth != null;
+      }
+    }
+  }
+}

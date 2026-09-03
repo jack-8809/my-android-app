@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Amber announcement strip (HomeRun: "Open 8 am to 8 pm all days")
+  NEW FILE: app/src/main/res/layout/view_announcement_strip.xml
+
+  Put it as the FIRST child of your home screen, above the header:
+      <include android:id="@+id/announcementStrip"
+               layout="@layout/view_announcement_strip"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+  Drive the text from your existing FlashMessageActivity / admin flash data.
+-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvAnnouncement"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/strip_amber"
+    android:ellipsize="marquee"
+    android:gravity="center"
+    android:marqueeRepeatLimit="marquee_forever"
+    android:paddingStart="@dimen/space_lg"
+    android:paddingTop="7dp"
+    android:paddingEnd="@dimen/space_lg"
+    android:paddingBottom="7dp"
+    android:singleLine="true"
+    android:textColor="@color/strip_amber_text"
+    android:textSize="@dimen/text_caption"
+    android:textStyle="bold"
+    tools:text="Open 8 am to 8 pm all days" />

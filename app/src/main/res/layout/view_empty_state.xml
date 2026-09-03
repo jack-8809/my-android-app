@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Reusable empty / error state.
+  NEW FILE: app/src/main/res/layout/view_empty_state.xml
+
+  Drop this <include> into any list screen (cart, orders, search results,
+  addresses, chat list) so "nothing here" looks intentional instead of blank:
+
+      <include
+          android:id="@+id/emptyState"
+          layout="@layout/view_empty_state"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:visibility="gone" />
+
+  Then in Java:
+      View empty = findViewById(R.id.emptyState);
+      ((ImageView) empty.findViewById(R.id.emptyIcon)).setImageResource(R.drawable.ic_cart);
+      ((TextView) empty.findViewById(R.id.emptyTitle)).setText("Your cart is empty");
+      ((TextView) empty.findViewById(R.id.emptyMessage)).setText("Add materials to get started.");
+      MaterialButton cta = empty.findViewById(R.id.emptyAction);
+      cta.setText("Browse materials");
+      cta.setOnClickListener(v -> finish());
+      empty.setVisibility(list.isEmpty() ? View.VISIBLE : View.GONE);
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/space_3xl"
+    android:paddingEnd="@dimen/space_3xl">
+
+    <FrameLayout
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/bg_circle_soft">
+
+        <ImageView
+            android:id="@+id/emptyIcon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_cart"
+            android:tint="@color/brand_orange" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/emptyTitle"
+        style="@style/Text.H1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xl"
+        android:gravity="center"
+        tools:text="Your cart is empty" />
+
+    <TextView
+        android:id="@+id/emptyMessage"
+        style="@style/Text.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:gravity="center"
+        tools:text="Browse cement, paints, plywood and more to get started." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/emptyAction"
+        style="@style/PremiumButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/space_2xl"
+        android:visibility="gone"
+        tools:text="Browse materials"
+        tools:visibility="visible" />
+</LinearLayout>

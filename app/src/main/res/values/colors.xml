@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress Design System — Colors
+  REPLACE app/src/main/res/values/colors.xml
+
+  Palette follows the HomeRun reference structure but recoloured to YOUR
+  orange brand. HomeRun's green CTA / yellow checkout become orange here;
+  the supporting roles (announcement strip, benefits bar, cashback banner,
+  savings green) are kept because they carry meaning, not brand.
+
+  All legacy names retained so nothing breaks.
+-->
+<resources>
+
+    <!-- ============ BRAND (from your app icon gradient) ============ -->
+    <color name="brand_orange">#F26100</color>
+    <color name="brand_orange_dark">#C24F00</color>
+    <color name="brand_orange_light">#FFF1E3</color>
+    <color name="brand_orange_pressed">#A84400</color>
+    <color name="brand_gradient_start">#FF9A2E</color>
+    <color name="brand_gradient_end">#F26100</color>
+
+    <!-- Announcement strip ("Open 8 am to 8 pm all days") -->
+    <color name="strip_amber">#FFC629</color>
+    <color name="strip_amber_text">#3D2A00</color>
+
+    <!-- Benefits bar (Pay on Delivery / Cashback / Free Delivery) -->
+    <color name="benefit_bar_start">#8C1D18</color>
+    <color name="benefit_bar_end">#6E1512</color>
+    <color name="benefit_bar_text">#FFFFFF</color>
+
+    <!-- Cashback / rewards banner -->
+    <color name="cashback_bg">#0B3D18</color>
+    <color name="cashback_track">#1F6B33</color>
+    <color name="cashback_fill">#4ADE80</color>
+    <color name="cashback_text">#FFFFFF</color>
+    <color name="cashback_accent">#FFC629</color>
+
+    <!-- Delivery-speed badge ("60 Mins") -->
+    <color name="speed_badge_bg">#0F8A43</color>
+    <color name="speed_badge_text">#FFFFFF</color>
+
+    <!-- ============ NEUTRALS / SURFACES ============ -->
+    <color name="graphite_dark">#14161A</color>
+    <color name="graphite_medium">#4A4F58</color>
+    <color name="surface_light">#F5F6F8</color>
+    <color name="surface_variant">#E6E8EC</color>
+
+    <color name="bg_app">#F5F6F8</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="bg_elevated">#FFFFFF</color>
+    <color name="bg_subtle">#FAFBFC</color>
+    <color name="bg_category_tile">#EAF4F4</color>
+
+    <color name="text_primary">#14161A</color>
+    <color name="text_secondary">#5A616B</color>
+    <color name="text_tertiary">#8C939E</color>
+    <color name="text_on_brand">#FFFFFF</color>
+    <color name="text_disabled">#B4BAC3</color>
+
+    <color name="divider">#E9EBEF</color>
+    <color name="stroke_soft">#E3E6EB</color>
+    <color name="scrim">#66000000</color>
+
+    <!-- ============ SEMANTIC ============ -->
+    <color name="success_green">#0F8A43</color>
+    <color name="success_green_light">#E4F6EB</color>
+    <color name="error_red">#D93025</color>
+    <color name="error_red_light">#FDECEA</color>
+    <color name="warning_amber">#B26A00</color>
+    <color name="warning_amber_light">#FFF4E0</color>
+    <color name="info_blue">#0B63CE</color>
+    <color name="info_blue_light">#E7F0FD</color>
+
+    <!-- Price / savings -->
+    <color name="price_current">#14161A</color>
+    <color name="price_struck">#98A0AB</color>
+    <color name="discount_badge">#FFC629</color>
+    <color name="discount_badge_text">#3D2A00</color>
+    <color name="bulk_price_link">#0B63CE</color>
+
+    <!-- Free-delivery pill on product cards -->
+    <color name="freedel_bg">#E4F6EB</color>
+    <color name="freedel_text">#0B5D2E</color>
+
+    <!-- Order status pills -->
+    <color name="status_pending">#B26A00</color>
+    <color name="status_pending_bg">#FFF4E0</color>
+    <color name="status_confirmed">#0B63CE</color>
+    <color name="status_confirmed_bg">#E7F0FD</color>
+    <color name="status_delivered">#0F8A43</color>
+    <color name="status_delivered_bg">#E4F6EB</color>
+    <color name="status_cancelled">#D93025</color>
+    <color name="status_cancelled_bg">#FDECEA</color>
+
+    <!-- Chat -->
+    <color name="chat_sent_bg">#F26100</color>
+    <color name="chat_sent_text">#FFFFFF</color>
+    <color name="chat_received_bg">#FFFFFF</color>
+    <color name="chat_received_text">#14161A</color>
+    <color name="chat_screen_bg">#F0F2F5</color>
+
+    <!-- Shimmer -->
+    <color name="shimmer_base">#E9EBEF</color>
+    <color name="shimmer_highlight">#F7F8FA</color>
+
+    <!-- ============ LEGACY (kept for compatibility) ============ -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="orange_brand">#F26100</color>
+</resources>

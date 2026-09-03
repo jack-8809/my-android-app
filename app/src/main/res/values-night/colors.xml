@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Dark theme colour overrides.
+  NEW FILE: app/src/main/res/values-night/colors.xml
+
+  ONLY enable this once you have removed hardcoded hex colours (#333, #FFF,
+  #F9F9F9 ...) from your layouts, otherwise dark mode will look broken.
+  Until then, force light mode in your Application/Activity with:
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+-->
+<resources>
+    <color name="brand_orange">#FF9433</color>
+    <color name="brand_orange_dark">#FF7A00</color>
+    <color name="brand_orange_light">#3A2410</color>
+    <color name="brand_orange_pressed">#FFAA5C</color>
+
+    <color name="bg_app">#0F1113</color>
+    <color name="bg_card">#1A1D21</color>
+    <color name="bg_elevated">#22262B</color>
+    <color name="bg_subtle">#22262B</color>
+
+    <color name="text_primary">#F2F4F7</color>
+    <color name="text_secondary">#A8B0BA</color>
+    <color name="text_tertiary">#79818C</color>
+    <color name="text_disabled">#4E555E</color>
+
+    <color name="divider">#2A2F35</color>
+    <color name="stroke_soft">#2A2F35</color>
+    <color name="surface_light">#1A1D21</color>
+    <color name="surface_variant">#2A2F35</color>
+
+    <color name="success_green">#4ADE80</color>
+    <color name="success_green_light">#12301F</color>
+    <color name="error_red">#F87171</color>
+    <color name="error_red_light">#3A1B1B</color>
+    <color name="warning_amber">#FBBF24</color>
+    <color name="warning_amber_light">#332612</color>
+    <color name="info_blue">#60A5FA</color>
+    <color name="info_blue_light">#14263F</color>
+
+    <color name="price_current">#4ADE80</color>
+    <color name="price_struck">#79818C</color>
+
+    <color name="chat_received_bg">#22262B</color>
+    <color name="chat_received_text">#F2F4F7</color>
+    <color name="chat_screen_bg">#0F1113</color>
+
+    <color name="shimmer_base">#22262B</color>
+    <color name="shimmer_highlight">#2E343B</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

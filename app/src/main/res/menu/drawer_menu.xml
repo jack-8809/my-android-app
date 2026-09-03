@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/nav_rewards"
+        android:icon="@drawable/ic_info"
+        android:title="My Rewards" />
+    <item
+        android:id="@+id/nav_banners"
+        android:icon="@drawable/ic_placeholder"
+        android:title="Banner Management"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_sales_dashboard"
+        android:icon="@drawable/ic_sort_price_up"
+        android:title="Sales &amp; Profit Analytics"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_inventory_dashboard"
+        android:icon="@drawable/ic_placeholder"
+        android:title="Inventory Dashboard"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_admin_services"
+        android:icon="@drawable/ic_edit"
+        android:title="Manage Services"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_bulk_price"
+        android:icon="@drawable/ic_sort_price_down"
+        android:title="Bulk Price Adjustment"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_manage_categories"
+        android:icon="@drawable/ic_edit"
+        android:title="Manage Categories"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_flash_manage"
+        android:icon="@drawable/ic_add"
+        android:title="Flash Discount Pop-up"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_display_settings"
+        android:icon="@drawable/ic_edit"
+        android:title="Display Settings"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_user_audit"
+        android:icon="@drawable/ic_profile"
+        android:title="User Reward Audit"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_general_support_admin"
+        android:icon="@drawable/ic_orders"
+        android:title="General Support Inbox"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_admin_chats"
+        android:icon="@drawable/ic_orders"
+        android:title="Service Request Chats"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_support_user"
+        android:icon="@drawable/ic_info"
+        android:title="Help &amp; Support" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_orders"
+        android:title="Order History" />
+    <item
+        android:id="@+id/nav_terms"
+        android:icon="@drawable/ic_policy"
+        android:title="Terms &amp; Conditions" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/ic_info"
+        android:title="About BuildExpress" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout" />
+</menu>

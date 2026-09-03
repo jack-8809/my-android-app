@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/surface_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan Order Document"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/graphite_dark"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload a photo of your handwritten list or a PDF. Our team will process it and place the order for you."
+        android:textSize="14sp"
+        android:textColor="@color/graphite_medium"
+        android:layout_marginBottom="24dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivDocPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_placeholder"
+                android:padding="20dp" />
+
+            <TextView
+                android:id="@+id/tvEmptyHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to capture or select file"
+                android:layout_centerInParent="true"
+                android:textColor="@color/graphite_medium" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/btnCaptureCamera"
+            style="@style/PremiumButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CAMERA"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/info_blue" />
+
+        <Button
+            android:id="@+id/btnPickFile"
+            style="@style/PremiumButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="GALLERY / PDF"
+            android:backgroundTint="@color/graphite_medium" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnViewChatHistory"
+        style="@style/PremiumButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="VIEW CHAT HISTORY"
+        android:backgroundTint="@color/bg_app"
+        android:textColor="@color/graphite_dark"
+        app:strokeColor="@color/graphite_medium"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/btnSendToSupport"
+        style="@style/PremiumButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND TO SUPPORT"
+        android:backgroundTint="@color/brand_orange"
+        android:textColor="@color/white"
+        android:enabled="false" />
+
+    <ProgressBar
+        android:id="@+id/uploadProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>

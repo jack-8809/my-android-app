@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/catItemImage"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_placeholder" />
+
+        <TextView
+            android:id="@+id/catItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="Product Name"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/catItemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="₹0.00"
+            android:textColor="@color/success_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tvCatShadeAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:background="@color/info_blue_light"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:text="Shades Available"
+            android:textColor="@color/info_blue"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvCatOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="4 Options Available"
+                android:textColor="@color/success_green"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvCatStockStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/error_red"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvBulkMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unlock bulk price at 15 units"
+            android:textColor="@color/success_green"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:padding="2dp">
+
+            <LinearLayout
+                android:id="@+id/catQtyContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/rounded_search_bg"
+                android:backgroundTint="@color/surface_variant"
+                android:padding="1dp">
+
+                <ImageButton
+                    android:id="@+id/btnCatMinus"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_remove"
+                    android:background="@android:color/transparent"
+                    android:padding="4dp"
+                    app:tint="@color/brand_orange" />
+
+                <TextView
+                    android:id="@+id/tvCatQty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="4dp"
+                    android:textColor="@color/text_primary" />
+
+                <ImageButton
+                    android:id="@+id/btnCatPlus"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_add"
+                    android:background="@android:color/transparent"
+                    android:padding="4dp"
+                    app:tint="@color/brand_orange" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/catItemAddBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:backgroundTint="@color/brand_orange"
+                android:text="Add"
+                android:textColor="@color/bg_card"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:cornerRadius="6dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "421113489350",
+    "project_id": "buildexpress-f5db8",
+    "storage_bucket": "buildexpress-f5db8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421113489350:android:bc8dfaad70667433a0f4c7",
+        "android_client_info": {
+          "package_name": "com.build.buildexpress"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8lFFvo9pEHkdYmJg-sAK8JNEaJe1hGM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

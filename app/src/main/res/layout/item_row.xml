@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Product grid card, HomeRun pattern (REDESIGNED v2)
+  REPLACE app/src/main/res/layout/item_row.xml
+
+  Mirrors the HomeRun product tile from your screenshots:
+    yellow % OFF badge (top-left)  ·  brand logo slot (top-right)
+    large product image on white   ·  "60 Mins · Pay on Delivery" meta row
+    Free Delivery pill             ·  2-line product name
+    MRP struck + selling price     ·  cashback strip
+    bulk-price link                ·  full-width ADD / N Options button
+
+  ALL 19 original IDs preserved exactly:
+    itemCard, rowImage, cardDetailsContainer, rowName, rowPrice,
+    tvShadeAvailable, tvStockStatus, tvRowBulk, tvOptionsAvailable,
+    adminContainer, rowQuantity, actionContainer, editBtn, deleteBtn,
+    qtySelectorContainer, btnMinusQty, tvRowQty, btnPlusQty, orderBtn
+  -> ItemAdapter.java needs NO changes.
+
+  NEW optional IDs (safe to ignore; set visibility in your adapter if you
+  want them): tvDiscountPct, imgBrandLogo, tvDeliveryMeta, tvFreeDelivery,
+  tvMrp, tvCashback
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_xs"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/bg_card"
+    app:cardCornerRadius="@dimen/radius_md"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/stroke_soft"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space_md">
+
+        <!-- ================= IMAGE + OVERLAYS ================= -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/rowImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/product_card_image"
+                android:background="@color/bg_card"
+                android:contentDescription="@null"
+                android:padding="@dimen/space_sm"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_placeholder" />
+
+            <!-- Yellow discount badge, top-left (HomeRun style) -->
+            <TextView
+                android:id="@+id/tvDiscountPct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:background="@drawable/bg_pill_discount"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_sm"
+                android:paddingTop="3dp"
+                android:paddingEnd="@dimen/space_sm"
+                android:paddingBottom="3dp"
+                android:textColor="@color/discount_badge_text"
+                android:textSize="@dimen/text_micro"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="29% OFF"
+                tools:visibility="visible" />
+
+            <!-- Brand logo, top-right -->
+            <ImageView
+                android:id="@+id/imgBrandLogo"
+                android:layout_width="34dp"
+                android:layout_height="18dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="@dimen/space_sm"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="fitEnd"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvShadeAvailable"
+                style="@style/Badge.Info"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="@dimen/space_sm"
+                android:text="Shades"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/cardDetailsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/space_md"
+            android:paddingEnd="@dimen/space_md">
+
+            <!-- ===== delivery meta: 60 Mins · Pay on Delivery ===== -->
+            <TextView
+                android:id="@+id/tvDeliveryMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="60 Mins · Pay on Delivery"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_micro" />
+
+            <!-- ===== free delivery pill ===== -->
+            <TextView
+                android:id="@+id/tvFreeDelivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:background="@drawable/bg_pill_freedelivery"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_sm"
+                android:paddingTop="3dp"
+                android:paddingEnd="@dimen/space_sm"
+                android:paddingBottom="3dp"
+                android:text="Free Delivery above ₹500"
+                android:textColor="@color/freedel_text"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+
+            <!-- ===== product name ===== -->
+            <TextView
+                android:id="@+id/rowName"
+                style="@style/Text.ProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                tools:text="Priya PPC Cement, 50 Kg Bag" />
+
+            <!-- ===== MRP + price ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvMrp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_xs"
+                    android:layout_marginBottom="1dp"
+                    android:textColor="@color/price_struck"
+                    android:textSize="@dimen/text_caption"
+                    android:visibility="gone"
+                    tools:text="₹360"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/rowPrice"
+                    style="@style/Text.Price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="₹350" />
+            </LinearLayout>
+
+            <!-- ===== cashback strip ===== -->
+            <TextView
+                android:id="@+id/tvCashback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:background="@drawable/bg_pill_neutral"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/space_sm"
+                android:paddingTop="5dp"
+                android:paddingEnd="@dimen/space_sm"
+                android:paddingBottom="5dp"
+                android:text="Assured 2% Cashback"
+                android:textColor="@color/text_secondary"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!-- ===== bulk price link ===== -->
+            <TextView
+                android:id="@+id/tvRowBulk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:textColor="@color/bulk_price_link"
+                android:textSize="@dimen/text_micro"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Unlock Bulk Prices of ₹325"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvOptionsAvailable"
+                style="@style/Text.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="Options available"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvStockStatus"
+                style="@style/Badge.Tag"
+                android:layout_marginTop="@dimen/space_xs"
+                android:background="@drawable/bg_pill_error"
+                android:textColor="@color/error_red"
+                android:visibility="gone"
+                tools:text="Out of stock" />
+
+            <!-- ===== ADMIN ONLY ===== -->
+            <LinearLayout
+                android:id="@+id/adminContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/rowQuantity"
+                    style="@style/Text.Caption"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Qty: 24" />
+
+                <LinearLayout
+                    android:id="@+id/actionContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/editBtn"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Edit"
+                        android:padding="@dimen/space_xs"
+                        android:src="@drawable/ic_edit"
+                        app:tint="@color/text_secondary" />
+
+                    <ImageButton
+                        android:id="@+id/deleteBtn"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Delete"
+                        android:padding="@dimen/space_xs"
+                        android:src="@drawable/ic_delete"
+                        app:tint="@color/error_red" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ===== ADD / stepper (HomeRun: full-width solid button) ===== -->
+            <LinearLayout
+                android:id="@+id/qtySelectorContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_md"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_qty_stepper"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnMinusQty"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Decrease"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_remove"
+                        app:tint="@color/brand_orange" />
+
+                    <TextView
+                        android:id="@+id/tvRowQty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="18dp"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/btnPlusQty"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Increase"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/brand_orange" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/orderBtn"
+                    style="@style/Button.AddSolid"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="@dimen/space_sm"
+                    android:layout_weight="1"
+                    android:text="Add" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

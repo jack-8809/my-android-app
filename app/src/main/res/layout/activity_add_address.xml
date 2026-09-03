@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Address As"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp" />
+
+        <RadioGroup
+            android:id="@+id/labelGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+            <RadioButton
+                android:id="@+id/radioHome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:checked="true" />
+            <RadioButton
+                android:id="@+id/radioWork"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Work" />
+            <RadioButton
+                android:id="@+id/radioOthers"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/inputFullAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Delivery Address"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/inputLandmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Landmark (Optional)"
+            android:inputType="text"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/inputPincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="6-Digit Pincode"
+            android:inputType="number"
+            android:maxLength="6"
+            android:layout_marginBottom="20dp" />
+
+        <CheckBox
+            android:id="@+id/cbSetDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set as Default Address"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/btnSaveAddress"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/brand_orange"
+            android:text="Save Address"
+            android:textColor="@color/bg_card"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

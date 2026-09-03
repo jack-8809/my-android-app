@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bg_app">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flash Discount Management"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/adminFlashImg"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_placeholder"
+                android:background="@color/surface_variant" />
+
+            <Button
+                android:id="@+id/btnUploadFlash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Flash Image"
+                android:layout_marginTop="8dp" />
+
+            <Switch
+                android:id="@+id/switchFlashActive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Active &amp; Visible to Users"
+                android:layout_marginTop="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Optional Message (e.g. 50% Off!)"
+                android:layout_marginTop="12dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFlashMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnSaveFlash"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Publish Flash Discount"
+        android:backgroundTint="@color/brand_orange"
+        android:textColor="@color/bg_card"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

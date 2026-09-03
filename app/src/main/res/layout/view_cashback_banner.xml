@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Cashback progress banner (HomeRun "Unlock 1% Cashback on ₹100+ orders")
+  NEW FILE: app/src/main/res/layout/view_cashback_banner.xml
+
+  Drop at the top of activity_cart.xml:
+      <include android:id="@+id/cashbackBanner"
+               layout="@layout/view_cashback_banner"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+  Wire in Java:
+      View b = findViewById(R.id.cashbackBanner);
+      ((TextView) b.findViewById(R.id.tvCashbackTitle))
+          .setText("Unlock 1% Cashback on ₹100+ orders");
+      ((TextView) b.findViewById(R.id.tvCashbackProgress))
+          .setText("₹" + subtotal + "/₹100");
+      ((TextView) b.findViewById(R.id.tvCashbackRemaining))
+          .setText("Add ₹" + (100 - subtotal) + " more");
+      ((ProgressBar) b.findViewById(R.id.pbCashback))
+          .setProgress((int) Math.min(100, subtotal * 100 / 100));
+      ((TextView) b.findViewById(R.id.tvCashbackEarned))
+          .setText("You'll earn ₹" + earned + " cashback");
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_padding_h"
+    android:layout_marginTop="@dimen/space_md"
+    android:layout_marginEnd="@dimen/screen_padding_h"
+    android:background="@drawable/bg_cashback_banner"
+    android:orientation="vertical"
+    android:padding="@dimen/space_lg">
+
+    <!-- title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_info"
+            android:tint="@color/cashback_accent" />
+
+        <TextView
+            android:id="@+id/tvCashbackTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:layout_weight="1"
+            android:textColor="@color/cashback_text"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"
+            tools:text="Unlock 1% Cashback on ₹100+ orders" />
+    </LinearLayout>
+
+    <!-- progress numbers -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCashbackProgress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/cashback_text"
+            android:textSize="@dimen/text_body_sm"
+            android:textStyle="bold"
+            tools:text="₹85/₹100" />
+
+        <TextView
+            android:id="@+id/tvCashbackRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cashback_accent"
+            android:textSize="@dimen/text_body_sm"
+            android:textStyle="bold"
+            tools:text="Add ₹15 more" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pbCashback"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_marginTop="@dimen/space_sm"
+        android:max="100"
+        android:progress="85"
+        android:progressDrawable="@drawable/bg_progress_track" />
+
+    <TextView
+        android:id="@+id/tvCashbackEarned"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:alpha="0.9"
+        android:gravity="center"
+        android:textColor="@color/cashback_text"
+        android:textSize="@dimen/text_caption"
+        tools:text="You'll earn ₹1 cashback" />
+</LinearLayout>

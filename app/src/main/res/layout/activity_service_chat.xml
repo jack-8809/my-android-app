@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/chat_screen_bg">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/chatHeader"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/brand_orange"
+        android:elevation="4dp"
+        android:paddingHorizontal="12dp">
+
+        <ImageButton
+            android:id="@+id/chatBackBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            app:tint="@color/bg_card" />
+
+        <TextView
+            android:id="@+id/chatTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/chatBackBtn"
+            android:text="Service Support"
+            android:textColor="@color/bg_card"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Messages List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/chatInputContainer"
+        android:layout_below="@id/chatHeader"
+        android:clipToPadding="false"
+        android:padding="12dp" />
+
+    <!-- Bot Options -->
+    <HorizontalScrollView
+        android:id="@+id/botOptionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/chatInputContainer"
+        android:background="@color/bg_card"
+        android:paddingVertical="8dp"
+        android:visibility="gone"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <Button
+                android:id="@+id/btnMinorRepair"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Minor Repairing"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/brand_orange" />
+
+            <Button
+                android:id="@+id/btnHalfDay"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Half Day Work"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/brand_orange" />
+
+            <Button
+                android:id="@+id/btnFullDay"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Day Work"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/brand_orange" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Input Area -->
+    <LinearLayout
+        android:id="@+id/chatInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_card"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/chatInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_search_bg"
+            android:backgroundTint="@color/chat_screen_bg"
+            android:hint="Type a message..."
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/chatSendBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/circle_white_bg"
+            android:backgroundTint="@color/brand_orange"
+            android:src="@android:drawable/ic_menu_send"
+            app:tint="@color/bg_card" />
+    </LinearLayout>
+
+</RelativeLayout>

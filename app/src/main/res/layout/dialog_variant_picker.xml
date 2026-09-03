@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BuildExpress — Variant picker bottom sheet (HomeRun pattern)
+  REPLACE app/src/main/res/layout/dialog_variant_picker.xml
+
+  ALL 4 original IDs preserved — they are referenced from ItemAdapter.java,
+  ItemListActivity.java, ItemDetailActivity.java and CategoryGalleryAdapter.java:
+      tvPopupTitle, ivPopupProduct, variantRecyclerView, btnClosePopup
+  -> No Java changes required.
+
+  Layout follows the "KEI Homecab FR 90MTR Wire" sheet in your screenshot:
+  title on the left with an X on the right, optional product image, an
+  optional Size chip row, then the scrollable variant list.
+
+  OPTIONAL new ids (only if you want the size row): sizeChipContainer,
+  sizeSectionLabel — leave them hidden and nothing changes.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_bar"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/space_lg">
+
+    <!-- grab handle -->
+    <View
+        android:layout_width="38dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_sm"
+        android:background="@drawable/bg_pill_neutral" />
+
+    <!-- ===== title + close ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/screen_padding_h"
+        android:paddingTop="@dimen/space_md"
+        android:paddingEnd="@dimen/space_sm"
+        android:paddingBottom="@dimen/space_md">
+
+        <TextView
+            android:id="@+id/tvPopupTitle"
+            style="@style/Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Choose Pack Size"
+            tools:text="KEI Homecab FR 90MTR Wire" />
+
+        <!-- Kept as a Button so existing setOnClickListener(...) still works -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClosePopup"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:text="✕"
+            android:textColor="@color/text_secondary"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <View style="@style/AppDivider" />
+
+    <!-- ===== product image (hide in Java if not needed) ===== -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_marginStart="@dimen/screen_padding_h"
+        android:layout_marginTop="@dimen/space_lg"
+        android:layout_marginEnd="@dimen/screen_padding_h"
+        app:cardBackgroundColor="@color/bg_subtle"
+        app:cardCornerRadius="@dimen/radius_md"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/ivPopupProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:padding="@dimen/space_sm"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_placeholder" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ===== optional Size chip row (GONE by default) ===== -->
+    <TextView
+        android:id="@+id/sizeSectionLabel"
+        style="@style/Text.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding_h"
+        android:layout_marginTop="@dimen/space_lg"
+        android:text="Size"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <HorizontalScrollView
+        android:id="@+id/sizeChipScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/screen_padding_h"
+        android:paddingEnd="@dimen/screen_padding_h"
+        android:scrollbars="none"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/sizeChipContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Chip.Size"
+                android:layout_marginEnd="@dimen/space_sm"
+                tools:state_selected="true"
+                android:text="1 sqmm"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Chip.Size"
+                android:layout_marginEnd="@dimen/space_sm"
+                android:text="1.5 sqmm"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Chip.Size"
+                android:text="2.5 sqmm"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ===== variant list ===== -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/variantRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:clipToPadding="false"
+        android:maxHeight="380dp"
+        android:overScrollMode="ifContentScrolls"
+        android:paddingStart="@dimen/screen_padding_h"
+        android:paddingEnd="@dimen/screen_padding_h"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_variant_row" />
+</LinearLayout>

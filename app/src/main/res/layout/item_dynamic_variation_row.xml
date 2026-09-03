@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
+
+    <!-- Label (e.g., 50kg) -->
+    <EditText
+        android:id="@+id/etVarLabel"
+        android:layout_width="0dp"
+        android:layout_weight="1.2"
+        android:layout_height="44dp"
+        android:hint="Label"
+        android:background="@drawable/rounded_search_bg"
+        android:paddingHorizontal="10dp"
+        android:textSize="12sp"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <!-- MRP -->
+    <EditText
+        android:id="@+id/etVarMRP"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:hint="MRP"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_search_bg"
+        android:backgroundTint="@color/bg_app"
+        android:paddingHorizontal="8dp"
+        android:textSize="11sp"
+        android:importantForAutofill="no" />
+
+    <!-- Sell Price -->
+    <EditText
+        android:id="@+id/etVarSell"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:hint="Sell"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_search_bg"
+        android:backgroundTint="@color/success_green_light"
+        android:paddingHorizontal="8dp"
+        android:textSize="11sp"
+        android:importantForAutofill="no" />
+
+    <!-- Cost Price -->
+    <EditText
+        android:id="@+id/etVarCost"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:hint="Cost"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_search_bg"
+        android:backgroundTint="@color/warning_amber_light"
+        android:paddingHorizontal="8dp"
+        android:textSize="11sp"
+        android:importantForAutofill="no" />
+
+    <!-- Qty (Stock) -->
+    <EditText
+        android:id="@+id/etVarStock"
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:hint="Qty"
+        android:inputType="number"
+        android:background="@drawable/rounded_search_bg"
+        android:backgroundTint="@color/info_blue_light"
+        android:paddingHorizontal="8dp"
+        android:textSize="11sp"
+        android:importantForAutofill="no" />
+
+    <ImageButton
+        android:id="@+id/btnRemoveVar"
+        android:layout_width="40dp"
+        android:layout_height="44dp"
+        android:src="@drawable/ic_delete"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/error_red"
+        android:padding="8dp"
+        android:contentDescription="Remove variation" />
+
+</LinearLayout>
